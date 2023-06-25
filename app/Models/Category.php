@@ -14,4 +14,10 @@ class Category extends Model
 
         return $this->hasMany(Post::class);
     }
+
+    public function latestPost(){
+
+        return $this->hasMany(Post::class)->latest('created_at')->first();
+      
+    }
 }

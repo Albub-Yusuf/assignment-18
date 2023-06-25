@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Post;
 
 
@@ -59,5 +60,13 @@ class PostController extends Controller
     public function getPostsByCategory($id){
         $posts = Post::where('category_id',$id)->get();
         return $posts;
+    }
+
+    public function latestPostByCategory($id){
+       
+        $category = Category::find($id);
+        $latestPost = $category->latestPost();
+
+        return $latestPost;
     }
 }

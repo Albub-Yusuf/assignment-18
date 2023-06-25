@@ -25,3 +25,4 @@ Route::get('/posts/{id}/delete',[PostController::class,'deletePost']);
 Route::get('/deletedPosts',[PostController::class,'getDeletedPosts']);
 Route::get('displayPosts',[PostController::class,'displayPosts']);
 Route::get('/categories/{id}/posts',[PostController::class,'getPostsByCategory']);
+Route::get('/latestPost/category/{id}',[PostController::class,'latestPostByCategory']);
