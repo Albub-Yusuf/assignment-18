@@ -20,3 +20,4 @@ Route::get('/', function () {
 
 
 Route::get('/posts',[PostController::class,'getPosts']);
+Route::get('/post/category/{id}',[PostController::class,'getTotalPostsByCategory']);

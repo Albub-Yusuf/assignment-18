@@ -14,4 +14,9 @@ class Post extends Model
 
         return $this->belongsTo(Category::class);
     }
+
+    public static function getTotalPostsCategorywise($categoryId){
+
+        return self::where('category_id',$categoryId)->count();
+    }
 }
