@@ -23,3 +23,4 @@ Route::get('/posts',[PostController::class,'getPosts']);
 Route::get('/posts/category/{id}',[PostController::class,'getTotalPostsByCategory']);
 Route::get('/posts/{id}/delete',[PostController::class,'deletePost']);
 Route::get('/deletedPosts',[PostController::class,'getDeletedPosts']);
+Route::get('displayPosts',[PostController::class,'displayPosts']);
