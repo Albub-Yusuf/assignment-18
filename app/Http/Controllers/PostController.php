@@ -25,4 +25,18 @@ class PostController extends Controller
         $totalPosts = Post::getTotalPostsCategorywise($id);
         return $totalPosts;
     }
+
+    public function deletePost($id){
+
+        $post = Post::findOrFail($id);
+        $result = $post->delete();
+
+
+        if($result){
+            return $result;
+        }
+        
+       
+        
+    }
 }
