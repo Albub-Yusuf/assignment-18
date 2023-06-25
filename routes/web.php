@@ -26,3 +26,4 @@ Route::get('/deletedPosts',[PostController::class,'getDeletedPosts']);
 Route::get('displayPosts',[PostController::class,'displayPosts']);
 Route::get('/categories/{id}/posts',[PostController::class,'getPostsByCategory']);
 Route::get('/latestPost/category/{id}',[PostController::class,'latestPostByCategory']);
+Route::get('/postByCategory',[PostController::class,'groupByLatestPost']);

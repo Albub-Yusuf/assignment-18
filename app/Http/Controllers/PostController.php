@@ -7,6 +7,7 @@ use App\Models\Post;
 
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller
 {
@@ -68,5 +69,32 @@ class PostController extends Controller
         $latestPost = $category->latestPost();
 
         return $latestPost;
+    }
+
+
+    public function groupByLatestPost(){
+
+        
+        $data['serial'] = 1;
+        $data['latestPosts'] = Post::with('category')->whereIn('id', function ($query) {
+            $query->select(DB::raw('MAX(id)'))
+                ->from('posts')
+                ->groupBy('category_id');
+            })->get();
+        
+          //  return $data;
+
+
+        // $data['latestPosts'] = DB::table('posts')
+        // ->whereIn('id', function ($query) {
+        // $query->select(DB::raw('MAX(id)'))
+        //     ->from('posts')
+        //     ->groupBy('category_id');
+        // })->get();
+
+    
+
+        return view('pages.latestPosts',$data);
+
     }
 }

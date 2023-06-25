@@ -1,8 +1,7 @@
 @extends('layouts.master')
-
 @section('content')
 
-<h3 class="text-center mt-2">Posts List</h3>
+<h3 class="text-center mt-2">Latest Posts</h3>
 <table class="table mt-5">
   <thead>
     <tr>
@@ -13,7 +12,7 @@
     </tr>
   </thead>
   <tbody>
-    @foreach($posts as $post)
+    @foreach($latestPosts as $post)
     <tr>
       <th scope="row">{{$serial++}}</th>
       <td>{{$post->name}}</td>
