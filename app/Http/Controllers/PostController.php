@@ -55,4 +55,9 @@ class PostController extends Controller
         return view('pages.index',$data);
 
     }
+
+    public function getPostsByCategory($id){
+        $posts = Post::where('category_id',$id)->get();
+        return $posts;
+    }
 }
