@@ -39,4 +39,16 @@ class PostController extends Controller
        
         
     }
+
+    public function getDeletedPosts(){
+        $deletedPosts = Post::getDeletedPosts();
+        
+
+        foreach ($deletedPosts as $post) {
+            echo "Post: " . $post->name . "<br>";
+            echo "Category: " . $post->category->name . "<br>";
+            echo "Post: " . $post->description . "<br>";
+            echo "<br><hr><br>";
+        }
+    }
 }

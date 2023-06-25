@@ -21,4 +21,8 @@ class Post extends Model
 
         return self::where('category_id',$categoryId)->count();
     }
+
+    public static function getDeletedPosts(){
+        return self::onlyTrashed()->get();
+    }
 }
